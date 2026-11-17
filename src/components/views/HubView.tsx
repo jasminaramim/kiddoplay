@@ -6,6 +6,7 @@ import { GAMES_CATALOG } from '../../data/gamesCatalog';
 import { BANGLA_RHYMES } from '../../data/learningContent';
 import { AgeGroup, Difficulty, GameCategory, GameId, LanguageMode, ThemeId } from '../../types';
 import { GameCard } from '../common/GameCard';
+import { DirectArtBook } from '../common/DirectArtBook';
 import { audioManager } from '../../utils/audioManager';
 import { speakBangla } from '../../utils/speechUtils';
 
@@ -20,36 +21,36 @@ interface FeaturedItem {
 
 const FEATURED_GAMES: FeaturedItem[] = [
   {
-    id: 'bangla-rhymes',
-    image: '',
-    tagline: 'Sing & recite famous Bengali nursery rhymes!',
-    taglineBn: 'আতা গাছে তোতা পাখি ও হাট্টিমাটিম টিম ছড়া আবৃত্তি!',
-    cardClass: 'border-rose-300 bg-rose-50/90 shadow-[0_8px_0_#FDA4AF]',
-    btnClass: 'bg-rose-500 hover:bg-rose-600 border-rose-600 text-white shadow-[0_4px_0_#BE123C]',
-  },
-  {
-    id: 'bangla-numbers',
-    image: '',
-    tagline: 'Count colorful animals & learn 1-10 in Bangla!',
-    taglineBn: '১ থেকে ১০ গণনা ও মজার নামতা আবৃত্তির মেলা!',
-    cardClass: 'border-amber-300 bg-amber-50/90 shadow-[0_8px_0_#FCD34D]',
-    btnClass: 'bg-amber-500 hover:bg-amber-600 border-amber-600 text-white shadow-[0_4px_0_#D97706]',
-  },
-  {
-    id: 'bangla-drawing',
-    image: '',
-    tagline: 'Paint with rainbow colors and cheerful stamps!',
-    taglineBn: 'রঙধনু তুলি দিয়ে ছবি আঁকো ও বাংলায় রঙের নাম শোনো!',
-    cardClass: 'border-violet-300 bg-violet-50/90 shadow-[0_8px_0_#C4B5FD]',
-    btnClass: 'bg-violet-500 hover:bg-violet-600 border-violet-600 text-white shadow-[0_4px_0_#6D28D9]',
-  },
-  {
     id: 'bangla-english',
     image: '/src/assets/images/featured_bangla_learning_1794884439171.jpg',
     tagline: 'Learn বাংলা বর্ণমালা & English words!',
     taglineBn: 'বাংলা বর্ণমালা (অ–ঔ, ক–ম) ও শব্দ শিখো!',
     cardClass: 'border-emerald-300 bg-emerald-50/90 shadow-[0_8px_0_#6EE7B7]',
     btnClass: 'bg-emerald-500 hover:bg-emerald-600 border-emerald-600 text-white shadow-[0_4px_0_#047857]',
+  },
+  {
+    id: 'alphabet-phonics',
+    image: '/src/assets/images/featured_phonics_adventure_1794884437504.jpg',
+    tagline: 'Tap A–Z cards & hear cheerful phonics!',
+    taglineBn: 'রঙিন এ–জেড কার্ড ট্যাপ করে ধ্বনি শোনো!',
+    cardClass: 'border-rose-300 bg-rose-50/90 shadow-[0_8px_0_#FDA4AF]',
+    btnClass: 'bg-rose-500 hover:bg-rose-600 border-rose-600 text-white shadow-[0_4px_0_#BE123C]',
+  },
+  {
+    id: 'balloon-pop',
+    image: '/src/assets/images/featured_balloon_fiesta_1794884438193.jpg',
+    tagline: 'Pop floating letter & number balloons!',
+    taglineBn: 'রঙিন উড়ন্ত অক্ষর ও সংখ্যার বেলুন ফাটাও!',
+    cardClass: 'border-sky-300 bg-sky-50/90 shadow-[0_8px_0_#7DD3FC]',
+    btnClass: 'bg-sky-500 hover:bg-sky-600 border-sky-600 text-white shadow-[0_4px_0_#0369A1]',
+  },
+  {
+    id: 'space-explorer',
+    image: '/src/assets/images/featured_space_explorer_1794884438005.jpg',
+    tagline: 'Fly past Saturn, stars & the Moon!',
+    taglineBn: 'গ্রহ, চাঁদ ও সূর্যের মহাকাশ ভ্রমণ কুইজ!',
+    cardClass: 'border-violet-300 bg-violet-50/90 shadow-[0_8px_0_#C4B5FD]',
+    btnClass: 'bg-violet-500 hover:bg-violet-600 border-violet-600 text-white shadow-[0_4px_0_#6D28D9]',
   },
 ];
 
@@ -416,7 +417,7 @@ export const HubView: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5">
           {FEATURED_GAMES.map((feat) => {
             const gameMeta = GAMES_CATALOG.find((g) => g.id === feat.id);
             if (!gameMeta) return null;
@@ -427,14 +428,14 @@ export const HubView: React.FC = () => {
                 key={feat.id}
                 whileHover={{ y: -5 }}
                 transition={{ duration: 0.16, ease: [0.16, 1, 0.3, 1] }}
-                className={`rounded-3xl border-[3px] overflow-hidden flex flex-col justify-between ${feat.cardClass}`}
+                className={`rounded-2xl sm:rounded-3xl border-2 sm:border-[3px] overflow-hidden flex flex-col justify-between ${feat.cardClass}`}
               >
                 <div>
                   <div
                     onClick={() => launchGame(feat.id)}
-                    className="relative aspect-[4/3] w-full overflow-hidden border-b-[3px] border-white/70 bg-white cursor-pointer group"
+                    className="relative aspect-[4/3] w-full overflow-hidden border-b-2 sm:border-b-[3px] border-white/70 bg-white cursor-pointer group"
                   >
-                    {!imgBroken ? (
+                    {!imgBroken && feat.image ? (
                       <img
                         src={feat.image}
                         alt={isEn ? gameMeta.title : gameMeta.titleBn}
@@ -445,37 +446,37 @@ export const HubView: React.FC = () => {
                         className="w-full h-full object-cover block group-hover:scale-105 transition-transform duration-300"
                       />
                     ) : (
-                      <div className="w-full h-full flex items-center justify-center text-6xl bg-white">
-                        {gameMeta.emoji}
+                      <div className="w-full h-full flex flex-col items-center justify-center p-3 bg-gradient-to-br from-amber-100 via-rose-100 to-sky-100 text-center">
+                        <span className="text-4xl sm:text-6xl animate-bounce-soft">{gameMeta.emoji}</span>
                       </div>
                     )}
-                    <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/90 via-slate-900/55 to-transparent px-4 pt-8 pb-3">
-                      <span className="inline-block px-2 py-0.5 rounded-lg bg-white/90 text-[11px] font-display font-bold text-slate-900 mb-1">
+                    <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/90 via-slate-900/55 to-transparent px-2.5 sm:px-4 pt-6 sm:pt-8 pb-2 sm:pb-3">
+                      <span className="inline-block px-1.5 sm:px-2 py-0.5 rounded-lg bg-white/90 text-[9px] sm:text-[11px] font-display font-bold text-slate-900 mb-0.5 sm:mb-1">
                         {gameMeta.emoji} {isEn ? gameMeta.subjectLabel : gameMeta.subjectLabelBn}
                       </span>
-                      <h3 className="font-display text-xl font-extrabold text-white leading-tight drop-shadow-[0_2px_3px_rgba(0,0,0,0.65)]">
+                      <h3 className="font-display text-sm sm:text-xl font-extrabold text-white leading-tight drop-shadow-[0_2px_3px_rgba(0,0,0,0.65)] line-clamp-1 sm:line-clamp-none">
                         {isEn ? gameMeta.title : gameMeta.titleBn}
                       </h3>
                     </div>
                   </div>
 
-                  <div className="p-4 pb-2">
-                    <p className="text-xs font-bold text-slate-500 mb-1">
+                  <div className="p-2.5 sm:p-4 pb-1 sm:pb-2">
+                    <p className="text-[10px] sm:text-xs font-bold text-slate-500 mb-0.5 sm:mb-1 truncate">
                       {isEn ? `Ages ${gameMeta.recommendedAges.join(', ')}` : `বয়স ${gameMeta.recommendedAges.join(', ')}`}
                     </p>
-                    <p className="text-sm font-semibold text-slate-700">
+                    <p className="text-xs sm:text-sm font-semibold text-slate-700 line-clamp-2">
                       {isEn ? feat.tagline : feat.taglineBn}
                     </p>
                   </div>
                 </div>
 
-                <div className="p-4 pt-2">
+                <div className="p-2.5 sm:p-4 pt-1 sm:pt-2">
                   <button
                     type="button"
                     onClick={() => launchGame(feat.id)}
-                    className={`w-full min-h-11 py-2.5 px-4 rounded-2xl font-display font-bold text-base border-2 flex items-center justify-center gap-2 cursor-pointer active:translate-y-0.5 transition-transform whitespace-nowrap ${feat.btnClass}`}
+                    className={`w-full min-h-8 sm:min-h-11 py-1.5 sm:py-2.5 px-2 sm:px-4 rounded-xl sm:rounded-2xl font-display font-bold text-xs sm:text-base border sm:border-2 flex items-center justify-center gap-1.5 sm:gap-2 cursor-pointer active:translate-y-0.5 transition-transform whitespace-nowrap ${feat.btnClass}`}
                   >
-                    <Play className="w-4 h-4 fill-current" />
+                    <Play className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-current shrink-0" />
                     <span>{isEn ? 'Play Spotlight' : 'এখনই খেলো!'}</span>
                   </button>
                 </div>
@@ -616,7 +617,7 @@ export const HubView: React.FC = () => {
           </div>
 
           {/* Bangla Games Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-5">
             {filteredBangla.map((game) => {
               const stats = state.gameStats[game.id];
               return (
@@ -660,7 +661,7 @@ export const HubView: React.FC = () => {
                 : 'কোনো খেলা খুঁজে পাওয়া যায়নি। অন্য কিছু লিখে চেষ্টা করো!'}
             </div>
           ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+            <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-5">
               {filteredLearn.map((game) => {
                 const stats = state.gameStats[game.id];
                 return (
@@ -678,6 +679,11 @@ export const HubView: React.FC = () => {
             </div>
           )}
         </section>
+      )}
+
+      {/* Direct Interactive Art Book Studio for Kids */}
+      {(activeCategory === 'all' || activeCategory === 'learn') && (
+        <DirectArtBook />
       )}
 
       {/* Video Preview Showcase Before Fun Arcade Zone */}
@@ -753,7 +759,7 @@ export const HubView: React.FC = () => {
                 : 'কোনো আর্কেড খেলা পাওয়া যায়নি।'}
             </div>
           ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+            <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-5">
               {filteredArcade.map((game) => {
                 const stats = state.gameStats[game.id];
                 return (

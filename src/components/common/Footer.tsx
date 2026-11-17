@@ -277,8 +277,22 @@ export const Footer: React.FC = () => {
 
         {/* Bottom Credits & Copyright */}
         <div className="pt-8 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-bold text-slate-500">
-          <div className="flex items-center gap-2">
+          <div className="flex flex-wrap items-center gap-2.5">
             <span>© {new Date().getFullYear()} KiddoPlay. সর্বস্বত্ব সংরক্ষিত।</span>
+            <span className="hidden sm:inline text-slate-300">•</span>
+            <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-rose-50 border border-rose-200 text-slate-800 shadow-sm">
+              <span>Developed with</span>
+              <Heart className="w-3.5 h-3.5 fill-rose-500 text-rose-500" />
+              <span>by</span>
+              <a
+                href="https://jasmin-v01.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-extrabold text-rose-600 hover:text-rose-800 underline transition-colors"
+              >
+                Jasmin
+              </a>
+            </span>
           </div>
           <div className="flex items-center gap-4 text-slate-600">
             <span>নিরাপদ আর্লি লার্নিং</span>
@@ -292,3 +306,4 @@ export const Footer: React.FC = () => {
     </footer>
   );
 };
+

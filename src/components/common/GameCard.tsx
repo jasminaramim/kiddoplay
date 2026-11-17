@@ -284,7 +284,7 @@ export const GameCard: React.FC<GameCardProps> = ({
     <motion.div
       whileHover={{ y: -6, rotate: -0.4 }}
       transition={{ duration: 0.16, ease: [0.16, 1, 0.3, 1] }}
-      className={`group bg-white rounded-3xl border-[3px] overflow-hidden flex flex-col justify-between ${theme.cardBorder} ${theme.cardShadow}`}
+      className={`group bg-white rounded-2xl sm:rounded-3xl border-2 sm:border-[3px] overflow-hidden flex flex-col justify-between ${theme.cardBorder} ${theme.cardShadow}`}
     >
       <div>
         {/* Illustrated Cartoon Game Poster Banner with Game Name */}
@@ -292,61 +292,61 @@ export const GameCard: React.FC<GameCardProps> = ({
           type="button"
           onClick={() => onPlay(game.id)}
           aria-label={title}
-          className={`relative w-full h-44 text-left overflow-hidden block cursor-pointer bg-gradient-to-br ${bannerArt.gradient}`}
+          className={`relative w-full h-28 sm:h-44 text-left overflow-hidden block cursor-pointer bg-gradient-to-br ${bannerArt.gradient}`}
         >
           <SceneBackdrop scene={bannerArt.scene} />
 
           {/* Floating Cartoon Stickers */}
           <span
-            className="absolute right-4 top-3 text-3xl sm:text-4xl drop-shadow-md rotate-12 group-hover:scale-115 group-hover:rotate-6 transition-transform pointer-events-none select-none"
+            className="absolute right-2 sm:right-4 top-2 sm:top-3 text-xl sm:text-4xl drop-shadow-md rotate-12 group-hover:scale-115 group-hover:rotate-6 transition-transform pointer-events-none select-none"
             aria-hidden="true"
           >
             {bannerArt.stickers[0]}
           </span>
           <span
-            className="absolute right-16 top-12 text-2xl sm:text-3xl drop-shadow-md -rotate-12 group-hover:scale-110 transition-transform pointer-events-none select-none"
+            className="absolute right-10 sm:right-16 top-8 sm:top-12 text-lg sm:text-3xl drop-shadow-md -rotate-12 group-hover:scale-110 transition-transform pointer-events-none select-none"
             aria-hidden="true"
           >
             {bannerArt.stickers[1]}
           </span>
           <span
-            className="absolute left-24 top-4 text-2xl drop-shadow-sm rotate-6 opacity-90 pointer-events-none select-none"
+            className="absolute left-16 sm:left-24 top-2 sm:top-4 text-base sm:text-2xl drop-shadow-sm rotate-6 opacity-90 pointer-events-none select-none hidden sm:inline"
             aria-hidden="true"
           >
             {bannerArt.stickers[2]}
           </span>
 
           {/* Top Row: Subject Badge & Stars Earned */}
-          <div className="relative z-10 flex items-start justify-between p-3.5 pb-0">
-            <div className="flex items-center gap-2">
+          <div className="relative z-10 flex items-start justify-between p-2 sm:p-3.5 pb-0">
+            <div className="flex items-center gap-1.5 sm:gap-2">
               <div
-                className="w-14 h-14 rounded-2xl bg-white/95 border-[3px] border-white shadow-lg flex items-center justify-center text-3xl group-hover:scale-110 group-hover:-rotate-3 transition-transform"
+                className="w-9 h-9 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-white/95 border-2 sm:border-[3px] border-white shadow-md flex items-center justify-center text-xl sm:text-3xl group-hover:scale-110 group-hover:-rotate-3 transition-transform"
                 aria-hidden="true"
               >
                 {game.emoji}
               </div>
               <span
-                className={`px-2.5 py-1 rounded-xl bg-white/95 text-[11px] font-display font-bold shadow-sm border border-white ${theme.tagText}`}
+                className={`px-1.5 sm:px-2.5 py-0.5 sm:py-1 rounded-lg sm:rounded-xl bg-white/95 text-[9px] sm:text-[11px] font-display font-bold shadow-sm border border-white ${theme.tagText}`}
               >
                 {subjectText}
               </span>
             </div>
 
             {starsEarned > 0 && (
-              <div className="flex items-center gap-1 rounded-2xl bg-white/95 border-2 border-amber-300 px-2.5 py-1 text-xs font-display font-bold text-amber-800 tabular-nums shadow-sm">
-                <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-500" />
+              <div className="flex items-center gap-1 rounded-xl sm:rounded-2xl bg-white/95 border sm:border-2 border-amber-300 px-1.5 sm:px-2.5 py-0.5 sm:py-1 text-[10px] sm:text-xs font-display font-bold text-amber-800 tabular-nums shadow-sm">
+                <Star className="w-3 h-3 sm:w-3.5 sm:h-3.5 fill-amber-400 text-amber-500" />
                 <span>{starsEarned}</span>
               </div>
             )}
           </div>
 
           {/* Banner Title Overlay Plaque */}
-          <div className="absolute inset-x-0 bottom-0 z-10 bg-gradient-to-t from-slate-950/88 via-slate-900/58 to-transparent px-4 pt-8 pb-3">
-            <h3 className="font-display text-lg sm:text-xl font-extrabold text-white leading-tight drop-shadow-[0_2px_3px_rgba(0,0,0,0.65)]">
+          <div className="absolute inset-x-0 bottom-0 z-10 bg-gradient-to-t from-slate-950/90 via-slate-900/60 to-transparent px-2.5 sm:px-4 pt-6 sm:pt-8 pb-2 sm:pb-3">
+            <h3 className="font-display text-xs sm:text-xl font-extrabold text-white leading-tight drop-shadow-[0_2px_3px_rgba(0,0,0,0.65)] line-clamp-1 sm:line-clamp-none">
               {title}
             </h3>
             {showBoth && (
-              <p className="text-xs font-bold text-amber-200 leading-tight mt-0.5 drop-shadow">
+              <p className="text-[10px] sm:text-xs font-bold text-amber-200 leading-tight mt-0.5 drop-shadow truncate">
                 {game.title}
               </p>
             )}
@@ -354,8 +354,8 @@ export const GameCard: React.FC<GameCardProps> = ({
         </button>
 
         {/* Card Details */}
-        <div className="px-4 pt-3.5 pb-2">
-          <p className="text-xs font-bold text-slate-500 mb-1.5">
+        <div className="px-2.5 sm:px-4 pt-2 sm:pt-3.5 pb-1 sm:pb-2">
+          <p className="text-[10px] sm:text-xs font-bold text-slate-500 mb-1 sm:mb-1.5 truncate">
             <span>{isEn ? `Ages ${game.recommendedAges.join(', ')}` : `বয়স ${game.recommendedAges.join(', ')}`}</span>
             {playsCount > 0 && (
               <>
@@ -363,27 +363,21 @@ export const GameCard: React.FC<GameCardProps> = ({
                 <span className="tabular-nums">{isEn ? `${playsCount} plays` : `${playsCount} বার`}</span>
               </>
             )}
-            {isAgeRecommended && (
-              <>
-                <span aria-hidden="true"> · </span>
-                <span className="text-emerald-700">{isEn ? 'Great Match' : 'উপযোগী'}</span>
-              </>
-            )}
           </p>
 
-          <p className="text-sm font-medium text-slate-600 leading-relaxed line-clamp-2">
+          <p className="text-xs sm:text-sm font-medium text-slate-600 leading-relaxed line-clamp-2 hidden sm:block">
             {description}
           </p>
         </div>
       </div>
 
-      <div className="p-4 pt-2">
+      <div className="p-2.5 sm:p-4 pt-1 sm:pt-2">
         <button
           type="button"
           onClick={() => onPlay(game.id)}
-          className={`w-full min-h-11 py-2.5 px-4 rounded-2xl font-display font-bold text-base flex items-center justify-center gap-2 border-2 transition-transform active:translate-y-0.5 cursor-pointer whitespace-nowrap ${theme.btnBg}`}
+          className={`w-full min-h-8 sm:min-h-11 py-1.5 sm:py-2.5 px-2 sm:px-4 rounded-xl sm:rounded-2xl font-display font-bold text-xs sm:text-base flex items-center justify-center gap-1.5 sm:gap-2 border sm:border-2 transition-transform active:translate-y-0.5 cursor-pointer whitespace-nowrap ${theme.btnBg}`}
         >
-          <Play className="w-4 h-4 fill-current shrink-0" />
+          <Play className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-current shrink-0" />
           <span>{isEn ? 'Play Now!' : 'খেলো!'}</span>
         </button>
       </div>
