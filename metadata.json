@@ -1,0 +1,6 @@
+{
+  "name": "KiddoPlay",
+  "description": "Vibrant, interactive all-in-one kids early learning, phonics, bilingual Bangla-English, math, science, and casual arcade gaming hub.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
