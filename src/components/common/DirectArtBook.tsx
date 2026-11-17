@@ -293,3 +293,4 @@ export const DirectArtBook: React.FC = () => {
     </section>
   );
 };
+
