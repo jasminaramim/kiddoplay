@@ -21,20 +21,20 @@ interface FeaturedItem {
 
 const FEATURED_GAMES: FeaturedItem[] = [
   {
+    id: 'bangla-rhymes',
+    image: '/src/assets/images/featured_bangla_rhymes.jpg',
+    tagline: 'Sing & recite famous Bengali nursery rhymes!',
+    taglineBn: 'আতা গাছে তোতা পাখি ও হাট্টিমাটিম টিম ছড়া আবৃত্তি!',
+    cardClass: 'border-rose-300 bg-rose-50/90 shadow-[0_8px_0_#FDA4AF]',
+    btnClass: 'bg-rose-500 hover:bg-rose-600 border-rose-600 text-white shadow-[0_4px_0_#BE123C]',
+  },
+  {
     id: 'bangla-english',
     image: '/src/assets/images/featured_bangla_learning_1794884439171.jpg',
     tagline: 'Learn বাংলা বর্ণমালা & English words!',
     taglineBn: 'বাংলা বর্ণমালা (অ–ঔ, ক–ম) ও শব্দ শিখো!',
     cardClass: 'border-emerald-300 bg-emerald-50/90 shadow-[0_8px_0_#6EE7B7]',
     btnClass: 'bg-emerald-500 hover:bg-emerald-600 border-emerald-600 text-white shadow-[0_4px_0_#047857]',
-  },
-  {
-    id: 'alphabet-phonics',
-    image: '/src/assets/images/featured_phonics_adventure_1794884437504.jpg',
-    tagline: 'Tap A–Z cards & hear cheerful phonics!',
-    taglineBn: 'রঙিন এ–জেড কার্ড ট্যাপ করে ধ্বনি শোনো!',
-    cardClass: 'border-rose-300 bg-rose-50/90 shadow-[0_8px_0_#FDA4AF]',
-    btnClass: 'bg-rose-500 hover:bg-rose-600 border-rose-600 text-white shadow-[0_4px_0_#BE123C]',
   },
   {
     id: 'balloon-pop',
